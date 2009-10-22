@@ -54,3 +54,5 @@ NAND_PAGE_SIZE := 4096
 TARGET_CPU_ABI := armeabi
 
 BOARD_KERNEL_CMDLINE := console=ttyMSM2,115200n8 androidboot.hardware=qcom
+
+TARGET_USERIMAGES_USE_EXT2 := true
