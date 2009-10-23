@@ -16,3 +16,15 @@ $(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/mkheader-7x30 \
 	@mkdir -p $(dir $@)
 	@$(HOST_OUT_EXECUTABLES)/mkheader-7x30 $(PRODUCT_OUT)/usbloader $(dir $@)/appsboothd.mbn
 	cat $(dir $@)/appsboothd.mbn $(PRODUCT_OUT)/usbloader > $@
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := emmc_appsboot.mbn
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)
+LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_REQUIRED_MODULES := mkheader-7x30 usbloader
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): $(HOST_OUT_EXECUTABLES)/mkheader-7x30 \
+                       $(PRODUCT_OUT)/usbloader
+	@mkdir -p $(dir $@)
+	@$(HOST_OUT_EXECUTABLES)/mkheader-7x30 $(PRODUCT_OUT)/usbloader $(dir $@)/emmc_appsboothd.mbn unified-boot
+	cat $(dir $@)/emmc_appsboothd.mbn $(PRODUCT_OUT)/usbloader > $@
