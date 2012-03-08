@@ -15,7 +15,6 @@ ifeq ($(QC_PROP),true)
     BOARD_USE_QCOM_TESTONLY := true
     BOARD_USES_QCNE := true
     TARGET_USES_SF_BYPASS := false
-    WEBCORE_INPAGE_VIDEO := true
     USE_OPENGL_RENDERER := true
     BOARD_USE_QCOM_LLVM_CLANG_RS := true
 
