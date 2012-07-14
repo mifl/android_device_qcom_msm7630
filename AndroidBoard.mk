@@ -8,17 +8,13 @@ ifneq ($(strip $(TARGET_NO_BOOTLOADER)),true)
 # Compile
 include bootable/bootloader/lk/AndroidBoot.mk
 
-INSTALLED_BOOTLOADER_TARGET := $(PRODUCT_OUT)/bootloader
-file := $(INSTALLED_BOOTLOADER_TARGET)
-ALL_PREBUILT += $(file)
-$(file): $(TARGET_BOOTLOADER) | $(ACP)
+$(INSTALLED_BOOTLOADER_MODULE) : $(TARGET_BOOTLOADER) | $(ACP)
 	$(transform-prebuilt-to-target)
+$(BUILT_TARGET_FILES_PACKAGE): $(INSTALLED_BOOTLOADER_MODULE)
 
+droidcore: $(INSTALLED_BOOTLOADER_MODULE)
 # Copy nandwrite utility to target out directory
-INSTALLED_NANDWRITE_TARGET := $(PRODUCT_OUT)/nandwrite
-file := $(INSTALLED_NANDWRITE_TARGET)
-ALL_PREBUILT += $(file)
-$(file) : $(TARGET_NANDWRITE) | $(ACP)
+$(INSTALLED_NANDWRITE_TARGET) : $(TARGET_NANDWRITE) | $(ACP)
 	$(transform-prebuilt-to-target)
 endif
 
@@ -30,10 +26,7 @@ ifeq ($(KERNEL_DEFCONFIG),)
 endif
 
 include kernel/AndroidKernel.mk
-
-file := $(INSTALLED_KERNEL_TARGET)
-ALL_PREBUILT += $(file)
-$(file) : $(TARGET_PREBUILT_KERNEL) | $(ACP)
+$(INSTALLED_KERNEL_TARGET) : $(TARGET_PREBUILT_KERNEL) | $(ACP)
 	$(transform-prebuilt-to-target)
 
 #----------------------------------------------------------------------
@@ -165,3 +158,7 @@ RADIO_FILES := $(shell cd $(radio_dir) ; find -iname *.ENC)
 $(foreach f, $(RADIO_FILES), \
     $(call add-radio-file,radio/$(f)))
 endif
+#----------------------------------------------------------------------
+# NAND images
+#----------------------------------------------------------------------
+include device/qcom/msm7630_surf/generate_nand_images.mk
