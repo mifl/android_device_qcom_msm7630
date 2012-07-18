@@ -94,5 +94,5 @@ HAVE_CYTTSP_FW_UPGRADE := true
 
 # Signed boot image support
 TARGET_BOOTIMG_SIGNED := true
-TARGET_NO_RPC := true
+TARGET_NO_RPC := false
 TARGET_USE_ION := true
