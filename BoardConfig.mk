@@ -13,7 +13,7 @@ ifeq ($(QC_PROP),true)
     TARGET_USES_C2D_COMPOSITION := true
     BOARD_USES_QCOM_AUDIO_V2 := true
     BOARD_USE_QCOM_TESTONLY := true
-    #BOARD_USES_QCNE := true
+    BOARD_USES_QCNE := true
     TARGET_USES_SF_BYPASS := false
     USE_OPENGL_RENDERER := true
     #BOARD_USE_QCOM_LLVM_CLANG_RS := true
