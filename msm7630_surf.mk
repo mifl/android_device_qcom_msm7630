@@ -7,3 +7,7 @@ $(call inherit-product, device/qcom/common/common.mk)
 
 PRODUCT_NAME := msm7630_surf
 PRODUCT_DEVICE := msm7630_surf
+
+# Bluetooth configuration files
+PRODUCT_COPY_FILES += \
+    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf \
