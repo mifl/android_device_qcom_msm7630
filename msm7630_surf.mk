@@ -10,4 +10,5 @@ PRODUCT_DEVICE := msm7630_surf
 
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf \
+    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
+PRODUCT_PACKAGES += fstab.msm7630
