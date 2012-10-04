@@ -42,10 +42,19 @@ on boot
     write /sys/devices/i2c-0/0-0024/cyttsp_update_fw 1
     exec /system/bin/sh /init.qcom.ril.path.sh
 
-on emmc-fs
-    mount ext4 /dev/block/mmcblk0p12 /system ro remount barrier=1
-
 on fs
+    mount_all fstab.msm7630
+
+    # Keeping following partitions outside fstab file. As user may not have
+    # these partition flashed on the device. Failure to mount any partition in fstab file
+    # results in failure to launch late-start class.
+
+    wait /dev/block/platform/msm_sdcc.2/by-num/p15
+    mount ext4 /dev/block/platform/msm_sdcc.2/by-num/p15 /cache nosuid nodev barrier=1
+
+    wait /dev/block/platform/msm_sdcc.2/by-num/p14
+    mount ext4 /dev/block/platform/msm_sdcc.2/by-num/p14 /persist nosuid nodev barrier=1
+
 # mount mtd partitions
 # Mount /system rw first to give the filesystem a chance to save a checkpoint
     mount yaffs2 mtd@system /system
