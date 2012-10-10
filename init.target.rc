@@ -29,6 +29,13 @@
 
 on boot
 
+    start qcamerasvr
+    #start camera server as daemon
+    service qcamerasvr /system/bin/mm-qcamera-daemon
+    class late_start
+    user camera
+    group camera system inet audio
+
     # Disable idle power collapse during boot.
     # These features will be enabled at the end of boot
     write /sys/module/pm2/parameters/idle_sleep_mode 3
