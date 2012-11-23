@@ -26,6 +26,8 @@ persist.cne.feature=1
 
 #
 lpa.decode=true
+use.non-omx.mp3.decoder=true
+use.non-omx.aac.decode=true
 ro.hdmi.enable=true
 
 #
