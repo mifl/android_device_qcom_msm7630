@@ -3,8 +3,12 @@
 # Product-specific compile-time definitions.
 #
 
+ifeq ($(TARGET_ARCH),)
+TARGET_ARCH := arm
+endif
+
 BOARD_USES_GENERIC_AUDIO := true
-USE_CAMERA_STUB := true
+USE_CAMERA_STUB := false
 
 -include vendor/qcom/proprietary/common/msm7630_surf/BoardConfigVendor.mk
 
