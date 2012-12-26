@@ -8,7 +8,7 @@ TARGET_ARCH := arm
 endif
 
 BOARD_USES_GENERIC_AUDIO := true
-USE_CAMERA_STUB := false
+USE_CAMERA_STUB := true
 
 -include vendor/qcom/proprietary/common/msm7630_surf/BoardConfigVendor.mk
 
