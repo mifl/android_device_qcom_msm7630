@@ -123,7 +123,7 @@ debug.camcorder.disablemeta=0
 #
 # Simulate sdcard on /data/media
 #
-persist.fuse_sdcard=false
+persist.fuse_sdcard=true
 # Turn off tiled rendering
 #
 debug.enabletr=false
