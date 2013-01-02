@@ -12,4 +12,9 @@ PRODUCT_PACKAGES += fstab.msm7630
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
     system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
+
+# Audio configuration file
+PRODUCT_COPY_FILES += \
+    device/qcom/msm7630_surf/audio_policy.conf:system/etc/audio_policy.conf \
+
 PRODUCT_PACKAGES += fstab.msm7630
