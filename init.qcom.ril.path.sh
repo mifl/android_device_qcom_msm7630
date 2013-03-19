@@ -37,7 +37,7 @@ length=1
 isrpc=0
 modemid=${buildid:$offset:$length}
 if [ "$modemid" = "$isrpc" ]; then
-    setprop rild.libpath "/system/lib/libril-qc-1.so"
+    setprop rild.libpath "/vendor/lib/libril-qc-1.so"
     stop ril-daemon
     start ril-daemon
 fi
