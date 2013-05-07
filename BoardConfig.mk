@@ -6,7 +6,7 @@
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 
--include vendor/qcom/proprietary/common/msm7630_surf/BoardConfigVendor.mk
+-include $(QCPATH)/common/msm7630_surf/BoardConfigVendor.mk
 
 #TARGET_HAVE_HDMI_OUT := true
 #if TARGET_GRALLOC_USES_ASHMEM is enabled, set debug.sf.hw=1 in system.prop
