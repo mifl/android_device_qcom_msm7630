@@ -53,3 +53,6 @@ HAVE_CYTTSP_FW_UPGRADE := true
 TARGET_BOOTIMG_SIGNED := true
 TARGET_NO_RPC := false
 TARGET_USES_ION := true
+
+# Add QC Video Enhancements flag
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
